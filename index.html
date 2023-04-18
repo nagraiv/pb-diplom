@@ -2,13 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Крестики-нолики</title>
     <link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
-<div id="board"></div>
+<div class="content">
+    <div class="info">
+        <h1>Крестики-нолики</h1>
+        <h3>на бесконечной доске</h3>
+        <p>Для выигрыша составьте ряд из <span id="seria"></span> одинаковых знаков!</p>
+        <p>Игру начинают "<span id="startPlayer"></span>"</p>
+        <p>Текущий ход у "<span id="activePlayer"></span>"</p>
+        <p>Ход <span id="round"></span></p>
+    </div>
+    <div class="panel">
+        <button class="reset">С начала</button>
+    </div>
+</div>
 
+<div class="container">
+    <div class="line"></div>
+    <div id="board" class="board"></div>
+</div>
 <div id="modal" class="hidden">
     <div id="modal__window">
         <h2></h2>
@@ -17,11 +34,9 @@
         </div>
     </div>
 </div>
-<div class="panel">
-    <button class="reset">С начала</button>
-</div>
 
 <script src="logic.js"></script>
+<script src="winCheck.js"></script>
 <script src="ui.js"></script>
 </body>
 </html>
