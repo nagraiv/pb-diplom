@@ -134,3 +134,36 @@ button:active {
 .hidden {
     display: none;
 }
+
+@media (max-width: 500px) {
+    body {
+        flex-direction: column;
+    }
+
+    .content {
+        width: 100%;
+        margin: 0;
+    }
+
+    .info {
+        min-height: 0;
+    }
+
+    p:last-child {
+        display: none;
+    }
+
+    .container {
+        margin: 0;
+        padding: 5px;
+    }
+
+     .board {
+        min-height: 50vh;
+        min-width: 90vw;
+    }
+
+    #modal__window {
+        width: 80%;
+    }
+}
