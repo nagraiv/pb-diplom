@@ -119,6 +119,9 @@ function startGame() {
   lineEL.style.left = '0';
   lineEL.style.height = '0';
   lineEL.style.width = '0';
+  lineEL.style.transformOrigin = 'initial';
+  lineEL.style.transform = 'none';
+  lineEL.style.transition = 'none';
 }
 
 function click(row, col) {
@@ -138,13 +141,20 @@ function click(row, col) {
   }
   if (checkVictory(board, rowInd, colInd)) {
     setTimeout(function(){showWinner(activePlayer);}, 3000);
-  }
-  round += 1;
-  activePlayer = (startPlayer + round) % 2;
+    let freeFields = document.querySelectorAll('.free')
+    freeFields.forEach(item => {
+      item.classList.remove('free');
+      item.classList.add('busy');
+    });
+    // showWinner(activePlayer);
+  } else {
+    round += 1;
+    activePlayer = (startPlayer + round) % 2;
 
-  let span2EL = document.getElementById('activePlayer');
-  span2EL.innerHTML = players[activePlayer];
-  let span3EL = document.getElementById('round');
-  span3EL.innerHTML = Math.floor(round / 2) + 1;
+    let span2EL = document.getElementById('activePlayer');
+    span2EL.innerHTML = players[activePlayer];
+    let span3EL = document.getElementById('round');
+    span3EL.innerHTML = Math.floor(round / 2) + 1;
+  }
 }
 
